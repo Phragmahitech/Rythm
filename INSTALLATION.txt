@@ -1,0 +1,69 @@
+Rythm by Phragma - installation
+===============================
+
+macOS (Apple Silicon et Intel, macOS 10.13 ou plus recent)
+----------------------------------------------------------
+1. Copie "Rythm.vst3" dans :
+       ~/Library/Audio/Plug-Ins/VST3/
+   (Finder > menu Aller > Aller au dossier... > colle ce chemin)
+   Ne garde qu'UNE copie du plugin.
+
+2. Le plugin n'est pas notarise par Apple : retire le marqueur de telechargement
+   dans l'app Terminal :
+
+       xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Rythm.vst3
+
+3. Relance ton DAW et rescanne les plugins.
+
+
+Windows (64 bits)
+-----------------
+1. Copie le DOSSIER "Rythm.vst3" en entier dans :
+       C:\Program Files\Common Files\VST3\
+
+2. Relance ton DAW et rescanne les plugins.
+
+
+Brancher Rythm dans Ableton Live
+--------------------------------
+Rythm est un instrument qui fabrique du MIDI. Tiens une note (clip MIDI ou clavier) :
+il joue tant qu'elle est tenue, cale sur le tempo de Live.
+
+A. Le plus simple : Rythm charge ton synthe
+   - Mets Rythm sur une piste MIDI a la place du synthe.
+   - PLAY > LOAD SYNTH : choisis ton synthe (Serum, Diva...). EDIT ouvre sa fenetre,
+     "< RYTHM" revient a Rythm.
+   - Les 128 premiers reglages du synthe sont automatisables depuis Live (P1..P128).
+
+B. Comme Rhythmizer : Rythm sur une piste, ton synthe sur une autre
+   - Piste 1 : Rythm + le clip avec la note tenue.
+   - Piste 2 : ton synthe. "MIDI From" = Piste 1, puis "Rythm" dans le menu du dessous.
+     Monitor sur "In". Tu peux aussi enregistrer le MIDI genere sur la piste 2.
+
+Les deux marchent en meme temps : le MIDI sort toujours vers Live.
+
+
+Utilisation
+-----------
+MODE       RHYTHM : rythme sur la (les) note(s) tenue(s), la hauteur ne change pas.
+           MELODY : melodie dans une gamme construite sur la note tenue (la tonique).
+RHYTHM     Division (1/4 a 1/64), STR / TRIP / DOT, DENSITY (chance qu'un pas joue)
+           ou STEPS (sequenceur), FILL (pas ajoutes au hasard), SHUFFLE, HUMAN
+           (decalage au hasard), GLITCH (repetitions rapides), GROOVE : LONG x2,
+           LONG x4 (notes plus longues), SPLIT /2 (deux notes dans un pas).
+MELODY     Gamme (majeur, mineur, modes, exotiques, pentatoniques, ACID, HELD NOTES,
+           CUSTOM). Clique sur une note de la rangee pour l'ajouter / l'enlever
+           (passe en CUSTOM). CHANCE (chance de quitter la tonique), RANGE (ecart
+           max en degres), DIRECTION, WALK (pas a pas depuis la note d'avant),
+           OCTAVE (sauts d'octave), SLIDE (notes liees), STACK + type (accords).
+           ACID : gamme phrygienne + regles 303 (sauts d'octave, slides, accents).
+           HELD NOTES : joue les notes de l'accord tenu.
+DYNAMICS   GATE (duree), VELOCITY, leurs parts au hasard, ACCENT (velocite 127).
+PITCH BEND DIVE / SCOOP / WOBBLE / RND, CHANCE, DEPTH, WOBBLE (cycles par note).
+           100 % = la plage de bend reglee dans ton synthe.
+MODULATION 4 sorties au hasard : un CC (vers Live et le synthe) ou directement un
+           reglage du synthe charge. MIN / MAX, CHANCE (a chaque note), SMOOTH.
+LOOP       Fige les derniers pas joues (1/4 de mesure a 8 mesures) et les rejoue.
+           Change de note tenue : la boucle est transposee. Gardee avec le projet.
+DRAG       Glisse la zone fleche dans Live : un clip MIDI de la boucle (si LOOP)
+           ou des dernieres mesures jouees.
