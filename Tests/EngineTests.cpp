@@ -315,7 +315,7 @@ static void testMelodyScales()
     e.prepare (sr);
     Settings s = rhythmSettings();
     s.mode = melodyMode;
-    s.scale = major;
+    s.scale = rythm::major;
     s.chance = 1.0f;
     s.direction = 1.0f;
     s.octave = 0.0f;
@@ -367,7 +367,7 @@ static void testChordAndStack()
     s.chance = 0.0f;
     s.stack = 1.0f;
     s.stackType = stackTriad;
-    s.scale = minor;
+    s.scale = rythm::minor;
     auto r2 = runEngine (e2, s, 6000, { { 0, true, 57 } });
     std::set<int> notes;
     for (auto& n : r2.notes) notes.insert (n.note);
@@ -381,7 +381,7 @@ static void testSlideAndGlitch()
     e.prepare (sr);
     auto s = rhythmSettings();
     s.mode = melodyMode;
-    s.scale = minor;
+    s.scale = rythm::minor;
     s.chance = 1.0f;
     s.slide = 1.0f;
     s.octave = 0.0f;
